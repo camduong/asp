@@ -1,0 +1,67 @@
+﻿@model Vacation.Models.Order
+
+@{
+  ViewBag.Title = "Edit";
+  Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="right_col" role="main">
+    <div class="row">
+        @using (Html.BeginForm())
+        {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Total_Price)
+        @Html.HiddenFor(model => model.Name)
+        @Html.HiddenFor(model => model.Address)
+        @Html.HiddenFor(model => model.Phone)
+        @Html.HiddenFor(model => model.Created_at)
+        <h1>Chi tiết đơn hàng</h1>
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-group">
+                        @foreach (var item in ViewBag.Detail)
+                        {
+                        <li class="list-group-item">
+                            <span class="badge">Giá: @item.Tour_Price VNĐ</span>
+                            @item.Tour_Name | @item.Tour_Qty Vé
+                        </li>}
+                    </ul>
+                </div>
+                <div class="panel-footer text-right">
+                    <strong>Tổng giá: @Html.DisplayFor(model => model.Total_Price) VNĐ</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="well">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <span class="lead">Tình trạng: </span>
+                        <select name="Status" class="form-control">
+                            <option value=" Chưa Xử Lý">Chưa xử lý</option>
+                            <option value="Xử Lý">Xử lý</option>
+                            <option value="Hủy">Hủy</option>
+                        </select>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input type="submit" value="Lưu" class="btn btn-default" />
+                        </div>
+                        <div class="col-sm-6">
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+    </div> <!--end of .row(form)-->
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</div>

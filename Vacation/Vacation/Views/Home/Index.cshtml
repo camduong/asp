@@ -1,0 +1,236 @@
+﻿@model IEnumerable<Vacation.Models.Location>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="cd-main-content main-user">
+    <div class="container">
+        <div class="bxslider">
+            <div class="slide"><img src="/Content/img/mountains.jpg" /></div>
+            <div class="slide"><img src="/Content/img/parallax1.jpg" /></div>
+            <div class="slide"><img src="/Content/img/parallax2.jpg" /></div>
+        </div>
+        <div id="search-tabs">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="active" role="presentation"><a href="#booking" aria-controls="home" role="tab" data-toggle="tab">Du lịch trong nước</a></li>
+                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Du lịch nước ngoài</a></li>
+                <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Tìm vé máy bay</a></li>
+                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Dịch vụ cho thuê xe</a></li>
+            </ul>
+            <div class="tab-content text-center">
+                <div class="tab-pane fade in active" id="booking" role="tabpanel">
+                    <div class="book-form">
+                        <div class="form-group text-center">
+                            <form>
+                                <select class="selectpicker input-group col-xs-4" data-live-search='true' , name='noidi' , title='Nơi đi'>
+                                    @foreach (var item in Model)
+                                    {
+                                        <option data-tokens="@item.Id" , value="~/tour/name=@item.Slug">@item.Name</option>
+                                    }
+                                </select>
+                                <select class="selectpicker input-group col-xs-4" data-live-search='true' , name='noiden' , title='Nơi đến'>
+                                    @foreach (var item in Model)
+                                    {
+                                    <option data-tokens="@item.Id" , value="~/tour/name=@item.Slug">@item.Name</option>
+                                    }
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel">
+                    <p>coming soon</p>
+                </div>
+                <div class="tab-pane fade" id="messages" role="tabpanel">
+                    <p>coming soon</p>
+                </div>
+                <div class="tab-pane fade" id="settings" role="tabpanel">
+                    <p>coming soon</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="introduce">
+        <div class="wrap-intro container">
+            <h1 class="text-center i-header"></h1>
+            <p class="text-center i-info"></p>
+        </div>
+        <div class="container">
+            <div class="row no-margin">
+                <div class="col col-md-4 no-padding thumbnail">
+                    <div class="clearfix" id="block0">
+                        <div class="i-tn-img-box">
+                            <img class="img-responsive" src="/Content/img/mountains_thum.jpg" />
+                            <div class="cap-header">
+                                <h1>Mountain</h1>
+                            </div>
+                            <div class="block-caption">
+                                <div class="info">
+                                    <h2>Mountain</h2>
+                                    <p>The exlusive services for children and teenagers, entertainment, miniclub, games for kids, amusement for youngsters and the legendary Little Wolves Club.</p>
+                                    <a class="btn" href="">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-4 no-padding thumbnail">
+                    <div class="clearfix" id="block1">
+                        <div class="i-tn-img-box">
+                            <img class="img-responsive" src="/Content/img/mountains_thum.jpg" />
+                            <div class="cap-header">
+                                <h1>Beach & Diving</h1>
+                            </div>
+                            <div class="block-caption">
+                                <div class="info">
+                                    <h2>Beach & Diving</h2>
+                                    <p>Located near the seaside in Villa Rosa – Martinsicuro in the Abruzzo region, this small coastal resort is ideal for family holidays, all submerged amid an oasis of greenery within 200 metres from the beach.</p>
+                                    <a class="btn" href="">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-4 no-padding thumbnail">
+                    <div class="clearfix" id="block2">
+                        <div class="i-tn-img-box">
+                            <img class="img-responsive" src="/Content/img/mountains_thum.jpg" />
+                            <div class="cap-header">
+                                <h1>Family Hotel</h1>
+                            </div>
+                            <div class="block-caption">
+                                <div class="info">
+                                    <h2>Family Hotel</h2>
+                                    <p>The exlusive services for children and teenagers, entertainment, miniclub, games for kids, amusement for youngsters and the legendary Little Wolves Club.</p>
+                                    <a class="btn" href="">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="offer">
+        <div class="wrap-offer">
+            <div class="wrap-offer-content container">
+                <h1 class="text-center o-header">Khuyến Mãi</h1>
+                <p class="text-center o-info">The environment is particularly family, children and young people easily get along. Playing is their form of communication. Adults find common interests and make new friends. That is the ambience at Hotel Paradiso and for many, every time, it feels "like home".</p>
+            </div>
+            <div class="container">
+                <div class="row no-margin">
+                    <div class="col col-md-3 col-sm-6 no-padding thumbnail">
+                        <div class="clearfix" id="block0">
+                            <div class="o-tn-img-box">
+                                <img class="img-responsive" src="/Content/img/mountains_thum.jpg" />
+                                <div class="cap-header">
+                                    <h1>Family Hotel</h1>
+                                </div>
+                                <div class="block-caption">
+                                    <div class="info">
+                                        <h2>Family Hotel</h2>
+                                        <p>The exlusive services for children and teenagers, entertainment, miniclub, games for kids, amusement for youngsters and the legendary Little Wolves Club.</p>
+                                        <a class="btn" href="">Read more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-3 col-sm-6 no-padding thumbnail">
+                        <div class="clearfix" id="block1">
+                            <div class="o-tn-img-box">
+                                <img class="img-responsive" src="/Content/img/mountains_thum.jpg" />
+                                <div class="cap-header">
+                                    <h1>Family Hotel</h1>
+                                </div>
+                                <div class="block-caption">
+                                    <div class="info">
+                                        <h2>Family Hotel</h2>
+                                        <p>The exlusive services for children and teenagers, entertainment, miniclub, games for kids, amusement for youngsters and the legendary Little Wolves Club.</p>
+                                        <a class="btn" href="">Read more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-3 col-sm-6 no-padding thumbnail">
+                        <div class="clearfix" id="block2">
+                            <div class="o-tn-img-box">
+                                <img class="img-responsive" src="/Content/img/mountains_thum.jpg" />
+                                <div class="cap-header">
+                                    <h1>Family Hotel</h1>
+                                </div>
+                                <div class="block-caption">
+                                    <div class="info">
+                                        <h2>Family Hotel</h2>
+                                        <p>The exlusive services for children and teenagers, entertainment, miniclub, games for kids, amusement for youngsters and the legendary Little Wolves Club.</p>
+                                        <a class="btn" href="">Read more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-3 col-sm-6 no-padding thumbnail">
+                        <div class="clearfix" id="block3">
+                            <div class="o-tn-img-box">
+                                <img class="img-responsive" src="/Content/img/mountains_thum.jpg" />
+                                <div class="cap-header">
+                                    <h1>Family Hotel</h1>
+                                </div>
+                                <div class="block-caption">
+                                    <div class="info">
+                                        <h2>Family Hotel</h2>
+                                        <p>The exlusive services for children and teenagers, entertainment, miniclub, games for kids, amusement for youngsters and the legendary Little Wolves Club.</p>
+                                        <a class="btn" href="">Read more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div class="clearfix"></div>
+@section scripts
+{
+    <script type="text/javascript" src="~/Scripts/js/moment.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/datepicker.min.js"></script>
+    <script type="text/javascript">
+        $('#datepicker.date').datepicker({
+            format: "dd/mm/yyyy",
+            weekStart: 0,
+            startView: 0,
+            maxViewMode: 1,
+            autoclose: true,
+            todayHighlight: true,
+            startDate:"-infinity",
+            endDate: "+6m",
+            todayBtn: "linked",
+        });
+        $('.offer').parallax("50%", -0.04);
+        $(document).ready(function(){
+            $('.bxslider').bxSlider({
+                speed: 800,
+                auto: true,
+                hideControlOnEnd: true,
+                controls: true,
+                slideWidth: 400,
+                minSlides: 2,
+                maxSlides: 3,
+                slideMargin: 10
+            });
+        });
+        $('.selectpicker').selectpicker({
+            style: 'btn-default',
+            size: 3
+        });
+        $('.selectpicker').on('changed.bs.select', function (e) {
+            var picker = $(this).val();
+            window.location.href = picker;
+        });
+    </script>
+}

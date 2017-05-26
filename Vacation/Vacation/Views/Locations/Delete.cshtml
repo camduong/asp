@@ -1,0 +1,55 @@
+﻿@model Vacation.Models.Location
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="right_col" role="main">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Xóa</h2>
+
+            <h3>Bạn thực sự muốn xóa?</h3>
+            <div>
+                <h4>Địa điểm</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        <label>Tên địa điểm</label>
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+
+                    <dt>
+                        <label>Slug</label>
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Slug)
+                    </dd>
+
+                    <dt>
+                        <label>Giới thiệu</label>
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Introduce)
+                    </dd>
+
+                </dl>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Delete" class="btn btn-danger btn-block" />
+                        @Html.ActionLink("Back to List", "Index")
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

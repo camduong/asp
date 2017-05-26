@@ -1,0 +1,46 @@
+﻿@model Vacation.Models.Location
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="right_col" role="main">
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                <h4>Địa điểm</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Slug)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Slug)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Introduce)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Introduce)
+                    </dd>
+
+                </dl>
+            </div>
+            <p>
+                @Html.ActionLink("Sửa", "Edit", new { id = Model.Id }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+        </div>
+    </div>
+</div>

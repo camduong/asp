@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Vacation.Models.Location>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="right_col" role="main">
+    <div class="row">
+        <div class="col-md-9">
+            <h1>Địa điểm</h1>
+        </div>
+        <div class="col-md-3">
+            <a href="~/Locations/Create" class="btn btn-lg btn-block btn-primary btn-h1-spacing">Tạo mới địa điểm</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table id="data_table" class="table display" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Tên</th>
+                        <th>Giới thiệu</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th>@Html.DisplayFor(modelItem => item.Id)</th>
+                            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Introduce)</td>
+                            <td style="text-align: left;">
+                                @Html.ActionLink("Sửa", "Edit", new { id = item.Id })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

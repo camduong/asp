@@ -1,0 +1,69 @@
+﻿@model List<Vacation.Models.Cart>
+
+@{
+  ViewBag.Title = "Checkout";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="cd-main-content main-user main-tour">
+    <div class="container">
+        <div class="col-md-10 col-md-offset-1">
+            <h2>Chi tiết giỏ hàng</h2>
+            <table id="data_table" class="table display" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>ID Tour</th>
+                        <th>Tên Tour</th>
+                        <th>Số lượng</th>
+                        <th>Giá</th>
+                        <th>Tổng giá</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <th>@item.Tour.Id</th>
+                        <td>@item.Tour.Name</td>
+                        <td>@item.Quatity</td>
+                        <td>@item.Tour.Price</td>
+                        <td>@(item.Tour.Price * item.Quatity)</td>
+
+                    </tr>}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-10 col-md-offset-1 row warp-check">
+            <hr />
+            <div>
+                Tổng tiền:
+                <h3 style="color: red; display: inline-block">@(Model.Sum(x => x.Tour.Price * x.Quatity)) VNĐ</h3>
+            </div>
+            <form id="checkout-form" action="~/Home/Checkout" method="post">
+                <div>
+                    <div class="form-group">
+                        <label for="name">Tên</label>
+                        <input id="name" type="text" required="required" name="name" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Địa chỉ</label>
+                        <input id="address" type="text" required="required" name="address" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Điện thoại</label>
+                        <input id="phone" type="text" required="required" name="phone" class="form-control" />
+                    </div>
+                </div>
+                <div></div>
+                <div class="text-right">
+                    <button type="submit" class="btn btn-success">Mua ngay</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</main>
+
+
+
+

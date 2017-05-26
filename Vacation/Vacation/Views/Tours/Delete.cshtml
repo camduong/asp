@@ -1,0 +1,103 @@
+﻿@model Vacation.Models.Tour
+
+@{
+  ViewBag.Title = "Delete";
+  Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="right_col" role="main">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Xóa</h2>
+
+            <h3>Bạn muốn xóa chuyến đi này?</h3>
+            <div>
+                <h4>Tour</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        <label>Tên chuyến:</label>
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+
+                    <dt>
+                        <label>Slug:</label>
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Slug)
+                    </dd>
+
+                    <dt>
+                        <label>Số vé:</label>
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.NumberTicket)
+                    </dd>
+
+                    <dt>
+                        <label>Ngày đi:</label>
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Depart_Date)
+                    </dd>
+
+                    <dt>
+                        <label>Ngày về:</label>
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Return_Date)
+                    </dd>
+
+                    <dt>
+                        <label>Số ngày:</label>
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Day)
+                    </dd>
+
+                    <dt>
+                        <label>Giá:</label>
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Price)
+                    </dd>
+
+                    <dt>
+                        <label>Lịch trình:</label>
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Schedule)
+                    </dd>
+
+                    <dt>
+                        <label>Địa điểm</label>
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Location.Name)
+                    </dd>
+
+                </dl>
+
+                @using (Html.BeginForm())
+                {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Xóa" class="btn btn-danger btn-block" />
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

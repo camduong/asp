@@ -1,0 +1,71 @@
+﻿@model Vacation.Models.Tour
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="right_col" role="main">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="x_content">
+                <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                    <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#tour" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Chuyến đi</a>
+                        </li>
+                        <li role="presentation" class="">
+                            <a href="#detailtour" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Chi tiết chuyến đi</a>
+                        </li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tour" aria-labelledby="home-tab">
+                            <h3>@Html.DisplayFor(model => model.Name)</h3>
+                            <p class="lead">Địa điểm: @Html.DisplayFor(model => model.Location.Name)</p>
+                            <p class="lead">Giá: @Html.DisplayFor(model => model.Price)VNĐ</p>
+                            <p class="lead">Số ngày: @Html.DisplayFor(model => model.Day) ngày</p>
+                            <p class="lead">Ngày đi: @Html.DisplayFor(model => model.Depart_Date)</p>
+                            <p class="lead">Ngày về: @Html.DisplayFor(model => model.Return_Date)</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="detailtour" aria-labelledby="profile-tab">
+                            <p class="lead">Lịch trình: </p>
+                            <p class="lead">@Html.DisplayFor(model => model.Schedule)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="well">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <span class="lead">URL: </span>
+                        <span><a href="~/@Html.DisplayFor(model => model.Slug)"</a></span>
+                    </div>
+                    <div class="clearfix"></div>
+                    <hr>
+                    <div class="col-sm-6">
+                        <a href="~/Tours/Edit" class="btn btn-primary btn-block">
+                            Sửa
+                        </a>
+                    </div>
+                    <div class="col-sm-6">
+                        <form action="~/Tours/Delete" method="post" >
+                            <input type="submit" class="btn btn-danger btn-block" value="Xóa" />
+                        </form>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="~/Tours/Index" class="btn btn-info btn-block btn-h1-spacing">
+                            <h4><i class="fa fa-angle-double-left"></i> Xem tất cả</h4>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

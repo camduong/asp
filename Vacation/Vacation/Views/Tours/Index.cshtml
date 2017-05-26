@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Vacation.Models.Tour>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="right_col" role="main">
+    <div class="row">
+        <div class="col-md-9">
+            <h1>Chuyến đi</h1>
+        </div>
+
+        <div class="col-md-3">
+            <a href="~/Tours/Create" class="btn btn-lg btn-block btn-primary btn-h1-spacing">Tạo chuyến đi mới</a>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Tên</th>
+                            <th>Giá</th>
+                            <th>Số ngày</th>
+                            <th>Ngày tạo</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <th>@Html.DisplayFor(modelItem => item.Id)</th>
+                            <th>@Html.DisplayFor(modelItem => item.Name)</th>
+                            <td>@Html.DisplayFor(modelItem => item.Price) VND</td>
+                            <td>@Html.DisplayFor(modelItem => item.Day) ngày</td>
+                            <td>@Html.DisplayFor(modelItem => item.Depart_Date)</td>
+                            <td style="text-align: center;">
+                                @Html.ActionLink("Sửa", "Edit", new { id = item.Id }) |
+                                @Html.ActionLink("Chi tiết", "Details", new { id = item.Id }) |
+                                @Html.ActionLink("Xóa", "Delete", new { id = item.Id })
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

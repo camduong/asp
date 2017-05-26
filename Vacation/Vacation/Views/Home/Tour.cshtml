@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Vacation.Models.Tour>
+
+@{
+		ViewBag.Title = "tour";
+		Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="cd-main-content main-user main-tour">
+	<div class="intro"></div>
+
+	<div class="container">
+				<div class="row"></div>
+				<div class="row justify-content-md-center" id="tour-overflow">
+						<div class="grid">
+								<div class="grid-sizer">
+												@foreach (var item in Model)
+												{
+												<div class="grid-item">
+														<img src="~/Content/img/5_48_1494996784.jpg" alt="Card image cap">
+														<div class="grid-intro col-md-12">
+																<a href="~/Home/Details/@item.Slug">
+																		<h3>@item.Name</h3>
+																</a>
+																<div class="schedule col-md-5 col-xs-12">
+																		<i class="fa fa-clock-o" aria-hidden="true"></i>
+																		<h5>@item.Day ngày</h5>
+																		<br>
+																		<i class="fa fa-calendar" aria-hidden="true"></i>
+																		<h5>@String.Format("{0:dd/MM/yyyy}", @item.Depart_Date)</h5>
+																</div>
+
+																<div class="price col-md-7 col-xs-12">
+																		<h3>@String.Format("{0:0,0}", @item.Price)<sup>VND</sup></h3>
+																		<div class="action col-sm-12">
+																				<a href="~/Home/DetailTour/@item.Id" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></a>
+																				<a href="~/Home/AddItem?tourid=@item.Id&quatity=1" class="btn btn-primary"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+																		</div>
+																</div>
+														</div>
+												</div>
+												}
+								</div>
+						</div>
+				</div>
+		<div class="text-center">
+			<button class="btn btn-secondary btn-lg btn-overflow" type="button">Xem thêm</button>
+		</div>
+	</div>
+	<div class="second"></div>
+</main>
+@section scripts
+{
+<script type="text/javascript" src="~/Scripts/js/moment.js"></script>
+<script type="text/javascript" src="~/Scripts/js/datepicker.min.js"></script>
+<script type="text/javascript" src="~/Scripts/js/isotope.pkgd.min.js"></script>
+<script type="text/javascript" src="~/Scripts/js/imagesloaded.pkgd.min.js"></script>
+<script type="text/javascript" src="~/Scripts/js/curtail.min.js"></script>
+<script type="text/javascript">
+	$('.intro').parallax("50%", 0.1);
+	$('.second').parallax("50%", 0.1);
+	var grid = document.querySelector('.grid');
+	var iso = new Isotope(grid, {
+		itemSelector: '.grid-item',
+		percentPosition: true,
+		masonry: {
+			columnWidth: '.grid-sizer'
+		}
+	});
+
+	imagesLoaded(grid).on('progress', function () {
+		// layout Isotope after each image loads
+		iso.layout();
+	});
+
+	$('.datepicker.input-daterange').datepicker({
+		format: "dd/mm/yyyy",
+		startDate: "-infinity",
+		endDate: "+7m,+4d",
+		maxViewMode: 1,
+		todayBtn: "linked",
+		todayHighlight: true
+	});
+	$(window).on("load", function () {
+		var text = $('#tour-overflow'),
+			btn = $('.btn-overflow'),
+			page = $('.page'),
+			h = text[0].scrollHeight;
+		if (h > 1545) {
+			btn.addClass('less');
+			btn.css('display', 'block');
+		}
+		btn.click(function (e) {
+			if (btn.hasClass('less')) {
+				btn.removeClass('less');
+				btn.css('display', 'none');
+				text.animate({ 'height': h });
+				if (h > 1045) {
+					page.css('display', 'block');
+				}
+			}
+		});
+	})
+</script>
+
+}

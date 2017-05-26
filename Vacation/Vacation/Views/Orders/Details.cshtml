@@ -1,0 +1,54 @@
+﻿@model Vacation.Models.Order
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="right_col" role="main">
+    <div class="row">
+        <h1>Chi tiết đơn hàng</h1>
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-group">
+                        @foreach (var item in ViewBag.Detail)
+                        {
+                            <li class="list-group-item">
+                                <span class="badge">Giá: @item.Tour_Price VNĐ</span>
+                                @item.Tour_Name | @item.Tour_Qty Vé
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="panel-footer text-right">
+                    <strong>Tổng giá: @Html.DisplayFor(model => model.Total_Price) VNĐ</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="well">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <span class="lead">Tình trạng: </span>
+                        <span class="lead">@Html.DisplayFor(model => model.Status)</span>
+                    </div>
+                    <div class="clearfix"></div>
+                    <hr>
+                    <div class="col-sm-12">
+                        <a href="~/Orders/Edit/" class="btn btn-primary btn-block">
+                            Sửa
+                        </a>
+                    </div>
+                    <div class="col-md-12">
+                        <a href="~/Orders/Index/@Model.Id" class="btn btn-info btn-block btn-h1-spacing">
+                            <h4><i class="fa fa-angle-double-left"></i> Xem tất cả</h4>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

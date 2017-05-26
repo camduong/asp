@@ -1,0 +1,119 @@
+﻿@model Vacation.Models.Tour
+
+@{
+		Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="cd-main-content main-user">
+		<div class="container">
+				<div id="tour-con" class="col-xs-12 col-sm-7">
+						<ul class="bxslider">
+								<!--navs = $tour->image
+														each nav, i in navs-->
+								<li><img src="~/Content/img/2_10_1494923585.png" /></li>
+						</ul>
+						<div class="row">
+								<h3 class="tour-name">@Model.Name</h3>
+								<div class="col-xs-8 col-lg-7 tour-det">
+										<ul class="detail-lab col-lg-4">
+												<li>Thời gian:</li>
+												<li>Khởi hành:</li>
+												<li>Số chỗ còn nhận:</li>
+										</ul>
+										<ul class="detail-inf col-lg-8">
+												<li>@Model.Day ngày</li>
+												<li>@String.Format("{0:dd/MM/yyyy}", @Model.Depart_Date)</li>
+												<li>@Model.NumberTicket chỗ</li>
+										</ul>
+								</div>
+								<div class="col-xs-4 col-lg-5 p-b">
+										<h2 class="gia">@String.Format("{0:0,0}",@Model.Price)<sup>VND</sup></h2>
+										<p><a href="#" role="button" class="btn btn-default">Đặt ngay</a></p>
+								</div>
+								<div class="clearfix"></div>
+								<div class="detail-tour">
+										<ul role="tablist" style="margin-bottom: 20px;" class="nav nav-tabs">
+												<li id="program" role="presentation" class="active"><a href="#chuongtrinh" aria-controls="chuongtrinh" role="tab" data-toggle="tab">Chương trình</a></li>
+												<li id="comment" role="presentation"><a href="#binhluan" aria-controls="binhluan" role="tab" data-toggle="tab">Bình luận</a></li>
+										</ul>
+										<div class="tab-content">
+												<div id="chuongtrinh" role="tabpanel" class="tab-pane fade in active">
+														<div>@Html.DisplayFor(model => model.Schedule)</div>
+												</div>
+												<div id="binhluan" role="tabpanel" class="tab-pane fade">
+													<div class="fb-comments" data-href="http://localhost:50885/Home/DetailTour" data-numposts="5"></div>
+													<div id="fb-root"></div>
+													<script>
+															(function (d, s, id) {
+															var js, fjs = d.getElementsByTagName(s)[0];
+															if (d.getElementById(id)) return;
+															js = d.createElement(s); js.id = id;
+															js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9";
+															fjs.parentNode.insertBefore(js, fjs);
+														}(document, 'script', 'facebook-jssdk'));</script>
+												</div>
+										</div>
+								</div>
+						</div>
+						<hr />
+				</div>
+				<div id="sidebar" class="col-xs-6 col-sm-5">
+						<div id="myaffix">
+								<ul class="sum-tour">
+									<li class="headers"><h3>Tóm tắt chuyến đi</h3></li>
+									<li>
+										<ul class="sub-sum">
+
+										</ul>
+									</li>
+								</ul>
+						</div>
+				</div>
+		</div>
+</main>
+@section scripts
+{
+<script type="text/javascript">
+		$(function(){
+			$('#myaffix').affix({
+				offset: {
+					top: $('#tour-con').offset().top,
+					bottom: (function () {
+						return (this.bottom = $('.page-footer').outerHeight(true))
+					})
+				}
+			})
+		});
+		$('.bxslider').bxSlider({
+			speed: 800,
+			auto: true,
+			hideControlOnEnd: true,
+			controls: true
+		});
+
+		//- smooth scroll
+		var offset=100;
+		var pro = $("#program").hasClass(null);
+		$(".sum-tour").on("click","a[href*=\\#]:not([href=\\#])", function(event){
+			$('[href=\\#chuongtrinh]').tab("show");
+			var hash = this.hash;
+			var $target = $(hash);
+			 if($target.length){
+				$("html,body").stop().animate({
+					scrollTop: $target.offset().top - offset
+				}, 800, function(){
+					if(history.pushState) {
+						history.pushState(null, null, hash);
+					}
+				});
+				event.preventDefault();
+			}
+		});
+		$("#chuongtrinh").ready(function(){
+			$("h4").each(function(i,l){
+				$(this).attr('id', 'ngay'+(i+1))
+				$(".sub-sum").append("<li><a href='#ngay"+(i+1)+"'>" + $(this).text() + "</a></li><hr/>")
+			});
+		});
+</script>
+}
