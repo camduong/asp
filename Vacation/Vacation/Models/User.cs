@@ -11,8 +11,9 @@ namespace Vacation.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class User
+	using System.ComponentModel.DataAnnotations;
+
+	public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
@@ -30,4 +31,36 @@ namespace Vacation.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
     }
+	public class LoginViewModel
+	{
+		[Required]
+		[EmailAddress]
+		public string Email { get; set; }
+
+		[Required]
+		[DataType(DataType.Password)]
+		public string Password { get; set; }
+
+		[Display(Name = "Remember me?")]
+		public bool RememberMe { get; set; }
+	}
+
+	public class RegisterViewModel
+	{
+		[Required]
+		[EmailAddress]
+		[Display(Name = "Email")]
+		public string Email { get; set; }
+
+		[Required]
+		[StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+		[DataType(DataType.Password)]
+		[Display(Name = "Password")]
+		public string Password { get; set; }
+
+		[DataType(DataType.Password)]
+		[Display(Name = "Confirm password")]
+		[Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+		public string ConfirmPassword { get; set; }
+	}
 }

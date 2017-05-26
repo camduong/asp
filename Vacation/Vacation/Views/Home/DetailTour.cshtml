@@ -27,7 +27,7 @@
 										</ul>
 								</div>
 								<div class="col-xs-4 col-lg-5 p-b">
-										<h2 class="gia">@String.Format("{0:0,0}",@Model.Price)<sup>VND</sup></h2>
+										<h3 class="gia">@String.Format("{0:0,0}",@Model.Price)<sup>VND</sup></h3>
 										<p><a href="#" role="button" class="btn btn-default">Đặt ngay</a></p>
 								</div>
 								<div class="clearfix"></div>
@@ -60,60 +60,58 @@
 				<div id="sidebar" class="col-xs-6 col-sm-5">
 						<div id="myaffix">
 								<ul class="sum-tour">
-									<li class="headers"><h3>Tóm tắt chuyến đi</h3></li>
-									<li>
-										<ul class="sub-sum">
-
-										</ul>
-									</li>
+										<h3 class="headers">Tóm tắt chuyến đi</h3>
+										<div class="sub-sum"></div>
 								</ul>
 						</div>
 				</div>
 		</div>
 </main>
+
 @section scripts
 {
-<script type="text/javascript">
-		$(function(){
-			$('#myaffix').affix({
-				offset: {
-					top: $('#tour-con').offset().top,
-					bottom: (function () {
-						return (this.bottom = $('.page-footer').outerHeight(true))
-					})
-				}
-			})
-		});
-		$('.bxslider').bxSlider({
-			speed: 800,
-			auto: true,
-			hideControlOnEnd: true,
-			controls: true
-		});
+    <script type="text/javascript" src="~/Scripts/js/bxslider.min.js"></script>
+    <script type="text/javascript">
+		    $(function(){
+			    $('#myaffix').affix({
+				    offset: {
+					    top: $('#tour-con').offset().top,
+					    bottom: (function () {
+						    return (this.bottom = $('.page-footer').outerHeight(true))
+					    })
+				    }
+			    })
+		    });
+		    $('.bxslider').bxSlider({
+			    speed: 800,
+			    auto: true,
+			    hideControlOnEnd: true,
+			    controls: true
+		    });
 
-		//- smooth scroll
-		var offset=100;
-		var pro = $("#program").hasClass(null);
-		$(".sum-tour").on("click","a[href*=\\#]:not([href=\\#])", function(event){
-			$('[href=\\#chuongtrinh]').tab("show");
-			var hash = this.hash;
-			var $target = $(hash);
-			 if($target.length){
-				$("html,body").stop().animate({
-					scrollTop: $target.offset().top - offset
-				}, 800, function(){
-					if(history.pushState) {
-						history.pushState(null, null, hash);
-					}
-				});
-				event.preventDefault();
-			}
-		});
-		$("#chuongtrinh").ready(function(){
-			$("h4").each(function(i,l){
-				$(this).attr('id', 'ngay'+(i+1))
-				$(".sub-sum").append("<li><a href='#ngay"+(i+1)+"'>" + $(this).text() + "</a></li><hr/>")
-			});
-		});
-</script>
+		    //- smooth scroll
+		    var offset=100;
+		    var pro = $("#program").hasClass(null);
+		    $(".sum-tour").on("click","a[href*=\\#]:not([href=\\#])", function(event){
+			    $('[href=\\#chuongtrinh]').tab("show");
+			    var hash = this.hash;
+			    var $target = $(hash);
+			     if($target.length){
+				    $("html,body").stop().animate({
+					    scrollTop: $target.offset().top - offset
+				    }, 800, function(){
+					    if(history.pushState) {
+						    history.pushState(null, null, hash);
+					    }
+				    });
+				    event.preventDefault();
+			    }
+		    });
+		    $("#chuongtrinh").ready(function(){
+			    $("h4").each(function(i,l){
+				    $(this).attr('id', 'ngay'+(i+1))
+				    $(".sub-sum").append("<li><a href='#ngay"+(i+1)+"'>" + $(this).text() + "</a></li><hr/>")
+			    });
+		    });
+    </script>
 }
