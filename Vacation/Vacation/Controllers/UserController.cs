@@ -18,18 +18,20 @@ namespace Vacation.Controllers
 		[ValidateAntiForgeryToken]
 		public ActionResult Login(LoginViewModel login)
 		{
-			
-			var v = db.Users.Where(a => a.E_mail == login.Email && a.Password == login.Password).FirstOrDefault();
-			if (v != null)
+			if (ModelState.IsValid)
 			{
-				FormsAuthentication.SetAuthCookie(login.Email, login.Remember);
-				Session["Id"] = v.Id.ToString();
-				Session["Email"] = v.E_mail.ToString();
-				Session["Name"] = v.Name.ToString();
-				Session["Address"] = v.Address.ToString();
-				Session["Phone"] = v.Phone.ToString();
-				return Redirect("/");
+				var v = db.Users.Where(a => a.E_mail == login.Email && a.Password == login.Password).FirstOrDefault();
+				if (v != null)
+				{
+					FormsAuthentication.SetAuthCookie(login.Email, false);
+					Session["Id"] = v.Id.ToString();
+					Session["Email"] = v.E_mail.ToString();
+					Session["Name"] = v.Name.ToString();
+					Session["Address"] = v.Address.ToString();
+					Session["Phone"] = v.Phone.ToString();
+					return Redirect("/");
 
+				}
 			}
 			return Redirect("/");
 		}

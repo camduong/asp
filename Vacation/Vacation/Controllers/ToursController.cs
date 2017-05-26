@@ -56,7 +56,7 @@ namespace Vacation.Controllers
 				db.Tours.Add(tour);
 				db.SaveChanges();
 				var id = tour.Id;
-				string filePath = Path.Combine(HttpContext.Server.MapPath("/Uploads/img"), Path.GetFileName(images.FileName));
+				var filePath = Path.Combine(HttpContext.Server.MapPath("~/Content/img"), Path.GetFileName(images.FileName));
 				string fileName = Path.GetFileName(images.FileName);
 				images.SaveAs(filePath);
 				var image = new Image();
