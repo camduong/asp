@@ -554,6 +554,7 @@
     <Content Include="Content\img\parallax3.jpg" />
     <Content Include="Content\img\parallax4.jpg" />
     <Content Include="Content\img\picture.jpg" />
+    <Content Include="Content\img\welcomead.jpg" />
     <Content Include="Content\kcfinder\browse.php" />
     <Content Include="Content\kcfinder\cache\base.css" />
     <Content Include="Content\kcfinder\cache\base.js" />
@@ -5799,7 +5800,6 @@
     <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ToursController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -6166,7 +6166,6 @@
     <Content Include="Views\Home\Tour.cshtml" />
     <Content Include="Views\Shared\Cart.cshtml" />
     <Content Include="Views\Home\Checkout.cshtml" />
-    <Content Include="Views\Home\Profile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -6174,9 +6173,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\User\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

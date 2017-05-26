@@ -3,145 +3,146 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-    <!-- Bootstrap -->
-    <link href="~/Content/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Font Awesome -->
-    <link href="~/Content/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    <!-- Custom Theme Style -->
-    <link href="~/Content/custom.min.css" rel="stylesheet" />
-    <link href="~/Content/jquery.dataTables.css" rel="stylesheet" />
-    <link href="~/Content/thuvienadmin.css" rel="stylesheet" />
-    <style media="screen" type="text/css">
-        #DataTables_Table_0_wrapper > th, #DataTables_Table_0_wrapper > td {
-            vertical-align: middle !important;
-            max-width: 200px;
-        }
-    </style>
+		<meta name="viewport" content="width=device-width" />
+		<title>@ViewBag.Title</title>
+		<!-- Bootstrap -->
+		<link href="~/Content/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+		<!-- Font Awesome -->
+		<link href="~/Content/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+		<!-- Custom Theme Style -->
+		<link href="~/Content/css/custom.min.css" rel="stylesheet" />
+		<link href="~/Content/css/jquery.dataTables.css" rel="stylesheet" />
+		<link href="~/Content/css/thuvienadmin.css" rel="stylesheet" />
+		<style media="screen" type="text/css">
+				#DataTables_Table_0_wrapper > th, #DataTables_Table_0_wrapper > td {
+						vertical-align: middle !important;
+						max-width: 200px;
+				}
+		</style>
 </head>
 <body class="nav-md">
-    <div class="container body">
-        <div class="main_container">
-            <div class="col-md-3 left_col menu_fixed">
-                <div class="left_col scroll-view">
-                    <div class="navbar nav_title" style="border: 0;">
-                        <a href="/admin" class="site_title"><i class="fa fa-globe" style="border: none"></i> <span>Vacation World</span></a>
-                    </div>
+	<div class="container body">
+		<div class="main_container">
+			<div class="col-md-3 left_col menu_fixed">
+				<div class="left_col scroll-view">
+					<div class="navbar nav_title" style="border: 0;">
+						<a href="/admin" class="site_title"><i class="fa fa-globe" style="border: none"></i> <span>Vacation World</span></a>
+					</div>
 
-                    <div class="clearfix"></div>
-                    <br />
+					<div class="clearfix"></div>
+					<br />
 
-                    <div>
-                        <div class="profile clearfix">
-                            <div class="profile_pic">
-                                <img src="~/Content/img/picture.jpg" alt="admin_picture" class="img-circle profile_img">
-                            </div>
-                            <div class="profile_info">
-                                Xin chào, <h2 style="display: inline-block;">Admin</h2>
-                            </div>
-                        </div>
+					<div>
+						<div class="profile clearfix">
+							<div class="profile_pic">
+								<img src="~/Content/img/picture.jpg" alt="admin_picture" class="img-circle profile_img">
+							</div>
+							<div class="profile_info">
+								Xin chào, <h2 style="display: inline-block;">Admin</h2>
+							</div>
+						</div>
 
-                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                            <div class="menu_section">
-                                <ul class="nav side-menu">
-                                    <li>
-                                        <a href="~/admin/index"><i class="fa fa-home"></i> Trang chủ </a>
-                                    </li>
-                                    <li>
-                                        <a href="~/tours/index"><i class="fa fa-road"></i> Chuyến đi </a>
-                                    </li>
-                                    <li>
-                                        <a href="~/locations/index"><i class="fa fa-location-arrow"></i>Địa điểm</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-users"></i>Khách hàng</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="sidebar-footer hidden-small">
-                            <a data-toggle="tooltip" data-placement="top" title="Website" href="/">
-                                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                            </a>
-                            <a data-toggle="tooltip" data-placement="top" title="Logout" href="#">
-                                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-                            </a>
-                        </div>
-                    </div>
+						<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+							<div class="menu_section">
+								<ul class="nav side-menu">
+									<li>
+										<a href="~/admin/index"><i class="fa fa-home"></i> Trang chủ </a>
+									</li>
+									<li>
+										<a href="~/tours/index"><i class="fa fa-road"></i> Chuyến đi </a>
+									</li>
+									<li>
+										<a href="~/locations/index"><i class="fa fa-location-arrow"></i>Địa điểm</a>
+									</li>
+									<li>
+										<a href="~/orders/index"><i class="fa fa-users"></i>Khách hàng</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="sidebar-footer hidden-small">
+							<a data-toggle="tooltip" data-placement="top" title="Website" href="/">
+								<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+							</a>
+							<a data-toggle="tooltip" data-placement="top" title="Logout" href="#">
+								<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+							</a>
+						</div>
+					</div>
 
-                </div>
-            </div>
+				</div>
+			</div>
 
-            <div class="top_nav">
-                <div class="nav_menu">
-                    <nav>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="">
-                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="~/Content/img/picture.jpg" alt="">
-                                    Admin
-                                    <span class=" fa fa-angle-down"></span>
-                                </a>
-                                <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                    <li><a href="javascript:;"> Profile</a></li>
-                                    <li>
-                                        <a href="#"
-                                           onclick="event.preventDefault();
+			<div class="top_nav">
+				<div class="nav_menu">
+					<nav>
+						<ul class="nav navbar-nav navbar-right">
+							<li class="">
+								<a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+									<img src="~/Content/img/picture.jpg" alt="">
+									Admin
+									<span class=" fa fa-angle-down"></span>
+								</a>
+								<ul class="dropdown-menu dropdown-usermenu pull-right">
+									<li><a href="javascript:;"> Profile</a></li>
+									<li>
+										<a href="#"
+											 onclick="event.preventDefault();
 									document.getElementById('logout-form').submit();">
-                                            <i class="fa fa-sign-out pull-right"></i>Logout
-                                        </a>
+											<i class="fa fa-sign-out pull-right"></i>Logout
+										</a>
 
-                                        <form id="logout-form" action="#" method="POST" style="display: none;"></form>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
+										<form id="logout-form" action="#" method="POST" style="display: none;"></form>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
 
-            @RenderBody()
-            <footer class="footer_fixed">
-                <div class="pull-right">
-                    Kha Tran Khoi Nguyen created by Gentelella Template
-                </div>
-            </footer>
-        </div>
-    </div>
-    <!-- jQuery -->
-    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <!-- Custom Theme Scripts -->
-    <script src="~/Scripts/custom.min.js"></script>
-    <script src="~/Scripts/jquery.dataTables.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.table').DataTable({
-                "lengthMenu": [[5, 10, 25, -1], [5, 10, 25, "All"]],
-                "columnDefs": [
-                    { "width": "10", "targets": 0 },
-                    { "width": "150", "targets": "_all" }
-                ],
-                "oLanguage": {
-                    "oPaginate": {
-                        "sPrevious": "Trước",
-                        "sNext": "Sau"
-                    },
-                    "sEmptyTable": "Bảng chưa có dữ liệu !!!",
-                    "sSearch": "Tìm kiếm:",
-                    "sZeroRecords": "Không có dữ liệu trong bản !!!",
-                    "sInfo": "Hiển thị _END_ mục trong tổng _TOTAL_ mục có trong dữ liệu",
-                    "sInfoFiltered": " - Lọc được trong _MAX_ mục",
-                    "sInfoEmpty": "Không có kết quả để hiển thị",
-                    "sLengthMenu": "Hiện _MENU_ dòng",
-                    "sLoadingRecords": "Xin đợi - đang xử lý...",
-                    "sProcessing": "DataTables đang bận",
-                    "sInfoThousands": "."
-                }
-            });
-        });
-    </script>
+		@RenderBody()
+		<footer class="footer_fixed">
+			<div class="pull-right">
+				Kha Tran Khoi Nguyen created by Gentelella Template
+			</div>
+		</footer>
+	</div>			
+		
+		<!-- jQuery -->
+		<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+		<!-- Bootstrap -->
+		<script src="~/Scripts/bootstrap.min.js"></script>
+		<!-- Custom Theme Scripts -->
+		<script src="~/Scripts/custom.min.js"></script>
+		<script src="~/Scripts/jquery.dataTables.js"></script>
+		<script type="text/javascript">
+				$(document).ready(function () {
+						$('.table').DataTable({
+								"lengthMenu": [[5, 10, 25, -1], [5, 10, 25, "All"]],
+								"columnDefs": [
+										{ "width": "10", "targets": 0 },
+										{ "width": "150", "targets": "_all" }
+								],
+								"oLanguage": {
+										"oPaginate": {
+												"sPrevious": "Trước",
+												"sNext": "Sau"
+										},
+										"sEmptyTable": "Bảng chưa có dữ liệu !!!",
+										"sSearch": "Tìm kiếm:",
+										"sZeroRecords": "Không có dữ liệu trong bản !!!",
+										"sInfo": "Hiển thị _END_ mục trong tổng _TOTAL_ mục có trong dữ liệu",
+										"sInfoFiltered": " - Lọc được trong _MAX_ mục",
+										"sInfoEmpty": "Không có kết quả để hiển thị",
+										"sLengthMenu": "Hiện _MENU_ dòng",
+										"sLoadingRecords": "Xin đợi - đang xử lý...",
+										"sProcessing": "DataTables đang bận",
+										"sInfoThousands": "."
+								}
+						});
+				});
+		</script>
 </body>
 </html>

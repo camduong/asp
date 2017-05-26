@@ -24,20 +24,6 @@ namespace Vacation.Controllers
 			return View(db.Tours.ToList());
 		}
 
-		public ActionResult FindTour(string name)
-		{
-			if (name == null)
-			{
-				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-			}
-			var tour = db.Tours.Where(a => a.Location.Slug == name).ToList();
-			if (tour == null)
-			{
-				return HttpNotFound();
-			}
-			return View("Tour",tour);
-		}
-
 		public ActionResult DetailTour(int? id)
 		{
 			if (id == null)
@@ -51,7 +37,7 @@ namespace Vacation.Controllers
 			}
 			return View(tour);
 		}
-
+		[ChildActionOnly]
 		public PartialViewResult Cart()
 		{
 			var cart = Session[CartSession];
