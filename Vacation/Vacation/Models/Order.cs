@@ -23,7 +23,7 @@ namespace Vacation.Models
 
 		public int Id { get; set; }
 		public Nullable<int> User_Id { get; set; }
-		[DataType(DataType.Currency), DisplayFormat(DataFormatString = "{0:0.0}")]
+		[DataType(DataType.Currency), DisplayFormat(DataFormatString = "{0:0,0}")]
 		public decimal Total_Price { get; set; }
 		public string Name { get; set; }
 		public string Address { get; set; }

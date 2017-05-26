@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -19,23 +20,27 @@ namespace Vacation.Controllers
 			return View(db.Locations.ToList());
 		}
 
-		public ActionResult Tour()
+		public ActionResult Tour(int? page)
 		{
-			return View(db.Tours.ToList());
+			int pageSize = 3;
+			int pageNumber = (page ?? 1);
+			return View(db.Tours.OrderBy(a => a.Id).ToPagedList(pageNumber, pageSize));
 		}
 
-		public ActionResult FindTour(string name)
+		public ActionResult FindTour(string name, int? page)
 		{
+			int pageSize = 3;
+			int pageNumber = (page ?? 1);
 			if (name == null)
 			{
 				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 			}
-			var tour = db.Tours.Where(a => a.Location.Slug == name).ToList();
+			var tour = db.Tours.Where(a => a.Location.Slug == name).OrderBy(a => a.Id).ToPagedList(pageNumber, pageSize);
 			if (tour == null)
 			{
 				return HttpNotFound();
 			}
-			return View("Tour",tour);
+			return View("Tour", tour);
 		}
 
 		public ActionResult DetailTour(int? id)

@@ -21,7 +21,7 @@ $_CONFIG = array(
 
 // GENERAL SETTINGS
 
-    'disabled' => false,
+    'disabled' => true,
     'uploadURL' => "~/Content/img/",
     'uploadDir' => "",
     'theme' => "default",

@@ -19,7 +19,7 @@ namespace Vacation.Models
 		public int Order_Id { get; set; }
 		public string Tour_Name { get; set; }
 		public int Tour_Qty { get; set; }
-		[DataType(DataType.Currency), DisplayFormat(DataFormatString = "{0:0.0}")]
+		[DataType(DataType.Currency), DisplayFormat(DataFormatString = "{0:0,0}")]
 		public decimal Tour_Price { get; set; }
 
 		public virtual Order Order { get; set; }

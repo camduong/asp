@@ -15,7 +15,7 @@
                         <th>ID Tour</th>
                         <th>Tên Tour</th>
                         <th>Số lượng</th>
-                        <th>Giá</th>
+                        <th>Đơn giá</th>
                         <th>Tổng giá</th>
                     </tr>
                 </thead>
@@ -26,8 +26,8 @@
                         <th>@item.Tour.Id</th>
                         <td>@item.Tour.Name</td>
                         <td>@item.Quatity</td>
-                        <td>@item.Tour.Price</td>
-                        <td>@(item.Tour.Price * item.Quatity)</td>
+                        <td>@String.Format("{0:0,0}", (@item.Tour.Price))<sup>VND</sup></td>
+                        <td>@String.Format("{0:0,0}", (@item.Tour.Price * @item.Quatity))<sup>VND</sup></td>
 
                     </tr>}
                 </tbody>
@@ -37,7 +37,7 @@
             <hr />
             <div>
                 Tổng tiền:
-                <h3 style="color: red; display: inline-block">@(Model.Sum(x => x.Tour.Price * x.Quatity)) VNĐ</h3>
+                <h3 style="color: red; display: inline-block">@String.Format("{0:0,0}", @Model.Sum(@x => @x.Tour.Price * @x.Quatity)) VNĐ</h3>
             </div>
             <form id="checkout-form" action="~/Home/Checkout" method="post">
                 <div>
