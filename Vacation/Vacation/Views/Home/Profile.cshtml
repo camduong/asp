@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Vacation.Models.Order>
+
+@{
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="cd-main-content main-user main-profile">
+    <div class="container">
+        <div class="panel-heading">
+            <h1>Lịch sử đặt hàng</h1>
+            <hr />
+            <h2>Danh mục đơn hàng của bạn</h2>
+            @foreach (var item in Model)
+            {
+            <div class="panel panel-default donhang">
+                <h4>
+                    Đơn hàng #
+                    <span>@item.Id</span>-<span>@item.Status</span>
+                </h4>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        @foreach (var detail in ViewBag.Detail)
+                        {
+                        <li class="list-group-item col-md-12">
+                            <h4 class="col-md-7">@detail.Tour_Name</h4>
+                            <div class="col-md-5 text-center">
+                                <span>@detail.Tour_Price x</span>
+                                <span>@detail.Tour_Qty Vé</span>
+                                <span class="badge">(@detail.Tour.Price * @detail.Tour_Qty) VNĐ</span>
+                        </div>
+                    </li>    }
+                    </ul>
+                </div>
+                <div class="panel-footer text-right">
+                    <span class="total">
+                        Total Price:@item.Total_Price<span> VNĐ</span>
+                    </span>
+                </div>
+            </div>}
+        </div>
+    </div>
+</main>
+
+

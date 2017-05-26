@@ -26,13 +26,13 @@
                                 <select class="selectpicker input-group col-xs-4" data-live-search='true' , name='noidi' , title='Nơi đi'>
                                     @foreach (var item in Model)
                                     {
-                                        <option data-tokens="@item.Id" , value="~/tour/name=@item.Slug">@item.Name</option>
+                                        <option data-tokens="@item.Id" , value="~/home/findtour?name=@item.Slug">@item.Name</option>
                                     }
                                 </select>
                                 <select class="selectpicker input-group col-xs-4" data-live-search='true' , name='noiden' , title='Nơi đến'>
                                     @foreach (var item in Model)
                                     {
-                                    <option data-tokens="@item.Id" , value="~/tour/name=@item.Slug">@item.Name</option>
+                                    <option data-tokens="@item.Id" , value="~/home/findtour?name=@item.Slug">@item.Name</option>
                                     }
                                 </select>
                             </form>
@@ -197,6 +197,8 @@
 <div class="clearfix"></div>
 @section scripts
 {
+    <script type="text/javascript" src="~/Scripts/js/parallax.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/bxslider.min.js"></script>
     <script type="text/javascript" src="~/Scripts/js/moment.js"></script>
     <script type="text/javascript" src="~/Scripts/js/datepicker.min.js"></script>
     <script type="text/javascript">
