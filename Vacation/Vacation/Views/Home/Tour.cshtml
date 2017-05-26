@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Vacation.Models.Tour>
+﻿@model PagedList.IPagedList<Vacation.Models.Tour>
+@using PagedList.Mvc;
 
 @{
 		ViewBag.Title = "tour";
@@ -44,6 +45,7 @@
 				</div>
 		<div class="text-center">
 			<button class="btn btn-secondary btn-lg btn-overflow" type="button">Xem thêm</button>
+      @Html.PagedListPager(Model, page => Url.Action("Tour", new { page }))
 		</div>
 	</div>
 	<div class="second"></div>

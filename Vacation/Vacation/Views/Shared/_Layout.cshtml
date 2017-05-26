@@ -3,215 +3,200 @@
 
 <html>
 <head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width" />
-		<title>Vacation World - @ViewBag.Title</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Vacation World - @ViewBag.Title</title>
 
-		<link href="~/Content/css/nav-reset.css" rel="stylesheet" />
-		<link href="~/Content/css/nav-style.css" rel="stylesheet" />
-		<link href="~/Content/css/bootstrap.css" rel="stylesheet" />
-		<link href="~/Content/css/bxslider.min.css" rel="stylesheet" />
-		<link href="~/Content/css/datepicker.min.css" rel="stylesheet" />
-		<link href="~/Content/css/select.css" rel="stylesheet" />
-		<link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
-		<link href="~/Content/css/thuvien.css" rel="stylesheet" />
+    <link href="~/Content/css/nav-reset.css" rel="stylesheet" />
+    <link href="~/Content/css/nav-style.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/css/bxslider.min.css" rel="stylesheet" />
+    <link href="~/Content/css/datepicker.min.css" rel="stylesheet" />
+    <link href="~/Content/css/select.css" rel="stylesheet" />
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/css/thuvien.css" rel="stylesheet" />
 </head>
 <body>
-		<header>
-				<div class="cd-logo"><a href="/"><img src="/Content/img/logo_nui.png" alt="Logo" /></a></div>
-				<nav class="cd-main-nav-wrapper">
-						<ul class="cd-main-nav">
-								<li><a href="/Home/Index"><i class="fa fa-home" aria-hidden="true"></i><span>&nbsp;Trang chủ</span></a></li>
-								<li><a href="/Home/Tour"><i class="fa fa-paper-plane" aria-hidden="true"></i><span>&nbsp;Chuyến đi</span></a></li>
-								<li><a class="nav-link" href="" data-toggle="modal" data-target="#shopping"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span>&nbsp;Giỏ hàng&nbsp;</span><span class="badge"></span></a></li>
-								
-								<li>
-										<a class="cd-subnav-trigger" href="#"><i class="fa fa-user" aria-hidden="true"></i><span>&nbsp;Tài khoản</span></a>
-										<ul>
-												<li class="go-back"><a href="">Menu</a>
-												@if (Session["Email"] == null)
-												{
-												<li class="nav-item"><a class="nav-link" href="" data-toggle="modal" data-target="#login"><i class="fa fa-sign-in" aria-hidden="true"></i><span>&nbsp;Đăng nhập</span></a></li>
-												<li class="nav-item"><a class="nav-link" href="" data-toggle="modal" data-target="#register"><i class="fa fa-user-plus" aria-hidden="true"></i><span>&nbsp;Đăng ký</span></a></li>
-}
-												else
-												{
-												<li class="dropdown">
-														<a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false">@Session["Name"]<span class="caret"></span></a>
-														<ul class="dropdown-menu dropdown-logout" role="menu">
-																<li><a href='~/User/HistoryCart?id=@Session["id"]'><i class="fa fa-list-ul" aria-hidden="true"></i><span>&nbsp;Lịch sử giao dịch</span></a></li>
-																<li>
-																		<a href="~/User/LogOut" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fa fa-sign-out" aria-hidden="true"></i><span>&nbsp;Đăng xuất</span></a>
-																		<form id="logout-form" action="~/User/LogOut" method="POST" style="display: none"></form>
-																</li>
-														</ul>
-												</li>
-												}
+    <header>
+        <div class="cd-logo"><a href="/"><img src="/Content/img/logo_nui.png" alt="Logo" /></a></div>
+        <nav class="cd-main-nav-wrapper">
+            <ul class="cd-main-nav">
+                <li><a href="/Home/Index"><i class="fa fa-home" aria-hidden="true"></i><span>&nbsp;Trang chủ</span></a></li>
+                <li><a href="/Home/Tour"><i class="fa fa-paper-plane" aria-hidden="true"></i><span>&nbsp;Chuyến đi</span></a></li>
+                <li><a class="nav-link" href="" data-toggle="modal" data-target="#shopping"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span>&nbsp;Giỏ hàng&nbsp;</span><span class="badge"></span></a></li>
 
-												<li><a class="placeholder" href="#0">Placeholder</a></li>
-										</ul>
-								</li>
-						</ul>
-				</nav><a class="cd-nav-trigger" href="#0"><span></span></a>
-		</header>
-		<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-				<div class="modal-dialog" role="document">
-						<div class="modal-content">
-								<div class="panel-heading">
-										<h1 class="text-center">Hello!</h1>
-										<p class="text-center">Wellcome to Vacation World<br />Please login your account!</p>
-								</div>
-								<div class="panel-body">
-										<form class="form-horizontal" role="form" method="POST" action="~/User/Login">
-												@Html.AntiForgeryToken()
-												<div class="form-group">
-														<div class="col-md-10 col-md-offset-1">
-																<input class="form-control" id="email" type="email" name="Email" placeholder="Email" value="" required="" autofocus="" />
-																<span class="help-block">
-																		@*<strong>$errors=&gt;first('#{nav[0]}')</strong>*@
-																</span>
-														</div>
-												</div>
-												<div class="form-group">
-														<div class="col-md-10 col-md-offset-1">
-																<input class="form-control" id="password" type="password" name="Password" placeholder="Password" value="" required="" autofocus="" />
-																<span class="help-block"></span>
-														</div>
-												</div>
-												<div class="form-group">
-														<div class="col-md-8 col-md-offset-2">
-																<div class="checkbox text-center">
-																		<label>
-																				<input type="checkbox" name="remember" checked="checked" />Remember Me
-																		</label>
-																</div>
-														</div>
-												</div>
-												<div class="form-group">
-														<div class="col-md-8 col-md-offset-2 acc-group">
-																<button class="btn btn-success btn-block" type="submit">Login</button><a class="btn btn-link btn-block" href="href">Forgot Your Password?</a>
-																<p class="text-center" style="margin:0">- or -</p><a class="btn btn-link btn-block" href="href">Don't have an account?<br />Register now!</a>
-														</div>
-												</div>
-										</form>
-								</div>
-						</div>
-				</div>
-		</div>
-		<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="panel-heading">
-						<h1 class="text-center">Register</h1>
-					</div>
-					<div class="panel-body">
-						<form class="reg" role="form" method="POST" action="action">
-							<div class="row">
-								<div class="col-md-6 col-sm-6 col-xs reg_form_margin">
-									<div class="form-group">
-										<input class="f_name form-control" type="text" placeholder="Họ" name="f_name" value="" required="required" autofocus="autofocus" />
-									</div>
-								</div>
-								<div class="col-md-6 col-sm-6 col-xs reg_form_margin">
-									<div class="form-group">
-										<input class="l_name form-control" type="text" placeholder="Tên" name="l_name" value="" required="required" autofocus="autofocus" />
-									</div>
-								</div>
-								<div class="col-md-6 col-sm-6 col-xs reg_form_margin">
-									<div class="form-group">
-										<input class="address form-control" type="text" placeholder="Địa chỉ" name="address" value="" required="required" autofocus="autofocus" />
-									</div>
-								</div>
-								<div class="col-md-6 col-sm-6 col-xs reg_form_margin">
-									<div class="form-group">
-										<input class="email form-control" type="email" placeholder="E-mail" name="email" value="" required="required" autofocus="autofocus" />
-									</div>
-								</div>
-								<div class="col-md-6 col-sm-6 col-xs reg_form_margin">
-									<div class="form-group">
-										<input class="password form-control" type="password" placeholder="Mật khẩu" name="password" value="" required="required" autofocus="autofocus" />
-									</div>
-								</div>
-								<div class="col-md-6 col-sm-6 col-xs reg_form_margin">
-									<div class="form-group">
-										<input class="re_password form-control" type="password" placeholder="Nhập lại mật khẩu" name="re_password" value="" required="required" autofocus="autofocus" />
-									</div>
-								</div>
-								<div class="col-md-6 col-sm-6 col-xs reg_form_margin">
-									<div class="form-group">
-										<input class="address form-control" type="text" placeholder="Địa chỉ" name="address" value="" required="required" autofocus="autofocus" />
-									</div>
-								</div>
-								<div class="col-md-6 col-sm-6 col-xs reg_form_margin">
-									<div class="form-group">
-										<div class="group-sex" name="group-sex" required="required">
-											<label class="radio-inline">
-												<input type="radio" name="optradio" />Nam
-											</label>
-											<label class="radio-inline">
-												<input type="radio" name="optradio" />Nữ
-											</label>
-											<label class="radio-inline">
-												<input type="radio" name="optradio" />Khác
-											</label>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6 col-sm-6 col-xs reg_form_margin">
-									<div class="form-group">
-										<div class="form-group" required="required">
-											<div class="input-group date no-padding" id="datepicker" name="date">
-												<input class="form-control" type="text" placeholder="Ngày sinh" value="" /><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6 col-sm-6 col-xs reg_form_margin">
-									<div class="form-group">
-										<div class="input-group no-padding" name="phone" required="">
-											<span class="input-group-addon" style="cursor: default"><span>+84</span></span>
-											<input class="form-control" id="phone" type="text" placeholder="Số điện thoại" name="phone" value="" />
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="sub-reg">
-								<div class="col-md-12">
-									<a class="back-logout col-md-4 col-sm-3 col-xs btn btn-warning" href="href" type="submit">Quay lại</a>
-									<button class="col-md-4 col-sm-3 col-xs btn btn-success" id="reg_btn" type="submit"> Đăng ký</button>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		@{ Html.RenderAction("Cart", "Home");}
-				@RenderBody()
-		<footer class="page-footer">
-				<div class="container">
-						<div class="row">
-								<div class="col-md">
-										<h5 class="white-text">Footer Content</h5>
-										<p class="grey-text">You can use rows and columns here to organize your footer content.</p>
-								</div>
-						</div>
-				</div>
-				<div class="footer-copyright">
-						<div class="container"><span class="grey-text">&copy; 2014 Copyright Text</span></div>
-				</div>
-		</footer>
-		<script type="text/javascript" src="~/Scripts/js/jquery-3.2.1.min.js" charset="utf-8"></script>
-		<script type="text/javascript" src="~/Scripts/js/jquery-ui.js" charset="utf-8" async="" defer=""></script>
-		<script type="text/javascript" src="~/Scripts/js/bootstrap3.min.js" charset="utf-8"></script>
-		<script type="text/javascript" src="~/Scripts/js/nav-main.js" charset="utf-8"></script>
-		<script type="text/javascript" src="~/Scripts/js/tether.min.js" charset="utf-8"></script>
-		<script type="text/javascript" src="~/Scripts/js/bxslider.min.js"></script>
-		<script type="text/javascript" src="~/Scripts/js/parallax.js"></script>
-		<script type="text/javascript" src="~/Scripts/js/select.js"></script>
-		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5913f75434cfc03d"></script>
-		<script src="~/Scripts/js/cartController.js"></script>
-		@RenderSection("scripts", false)
-</body>
+                <li>
+                    <a class="cd-subnav-trigger" href="#"><i class="fa fa-user" aria-hidden="true"></i><span>&nbsp;Tài khoản</span></a>
+                    <ul>
+                        <li class="go-back">
+                            <a href="">Menu</a>
+                            @if (Session["Email"] == null)
+                            {
+                        <li class="nav-item"><a class="nav-link" href="" data-toggle="modal" data-target="#login"><i class="fa fa-sign-in" aria-hidden="true"></i><span>&nbsp;Đăng nhập</span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="" data-toggle="modal" data-target="#register"><i class="fa fa-user-plus" aria-hidden="true"></i><span>&nbsp;Đăng ký</span></a></li>}
+                            else
+                            {
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false">@Session["Name"]<span class="caret"></span></a>
+                                <ul class="dropdown-menu dropdown-logout" role="menu">
+                                    <li><a href='~/User/HistoryCart?id=@Session["id"]'><i class="fa fa-list-ul" aria-hidden="true"></i><span>&nbsp;Lịch sử giao dịch</span></a></li>
+                                    <li>
+                                        <a href="~/User/LogOut" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fa fa-sign-out" aria-hidden="true"></i><span>&nbsp;Đăng xuất</span></a>
+                                        <form id="logout-form" action="~/User/LogOut" method="POST" style="display: none"></form>
+                                    </li>
+                                </ul>
+                            </li>}
+
+                            <li><a class="placeholder" href="#0">Placeholder</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav><a class="cd-nav-trigger" href="#0"><span></span></a>
+        </header>
+        <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="panel-heading">
+                        <h1 class="text-center">Hello!</h1>
+                        <p class="text-center">Wellcome to Vacation World<br />Please login your account!</p>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-horizontal" role="form" method="POST" action="~/User/Login">
+                            @Html.AntiForgeryToken()
+                            <div class="form-group">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <input class="form-control" id="email" type="email" name="Email" placeholder="Email" value="" required="" autofocus="" />
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <input class="form-control" id="password" type="password" name="Password" placeholder="Password" value="" required="" autofocus="" />
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <div class="checkbox text-center">
+                                        <label>
+                                            <input type="checkbox" name="Remember" checked="checked" />Remember Me
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-8 col-md-offset-2 acc-group">
+                                    <button class="btn btn-success btn-block" type="submit">Login</button><a class="btn btn-link btn-block" href="href">Forgot Your Password?</a>
+                                    <p class="text-center" style="margin:0">- or -</p><a class="btn btn-link btn-block" href="href">Don't have an account?<br />Register now!</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="panel-heading">
+                        <h1 class="text-center">Register</h1>
+                    </div>
+                    <div class="panel-body">
+                        <form class="reg" role="form" method="POST" action="~/User/Register">
+                            @Html.AntiForgeryToken()
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs reg_form_margin">
+                                    <div class="form-group">
+                                        <input class="l_name form-control" type="text" placeholder="Tên" name="Name" value="" required="required" autofocus="autofocus" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs reg_form_margin">
+                                    <div class="form-group">
+                                        <input class="address form-control" type="text" placeholder="Địa chỉ" name="Address" value="" required="required" autofocus="autofocus" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs reg_form_margin">
+                                    <div class="form-group">
+                                        <input class="email form-control" type="email" placeholder="E-mail" name="E_mail" value="" required="required" autofocus="autofocus" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs reg_form_margin">
+                                    <div class="form-group">
+                                        <input class="password form-control" type="password" placeholder="Mật khẩu" name="Password" value="" required="required" autofocus="autofocus" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs reg_form_margin">
+                                    <div class="form-group">
+                                        <input class="re_password form-control" type="password" placeholder="Nhập lại mật khẩu" name="ConfirmPassword" value="" required="required" autofocus="autofocus" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs reg_form_margin">
+                                    <div class="form-group">
+                                        <div class="group-sex" name="Sex" required="required">Giới tính:
+                                            <label class="radio-inline">
+                                                <input type="radio" name="optradio" value="nam" checked/>Nam
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="optradio" value="nữ"/>Nữ
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs reg_form_margin">
+                                    <div class="form-group">
+                                        <div class="form-group" required="required">
+                                            <div class="input-group date no-padding" id="datepicker" name="Birthday">
+                                                <input class="form-control" type="text" placeholder="Ngày sinh" value="" /><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs reg_form_margin">
+                                    <div class="form-group">
+                                        <div class="input-group no-padding" name="phone" required="">
+                                            <span class="input-group-addon" style="cursor: default"><span>+84</span></span>
+                                            <input class="form-control" id="phone" type="text" placeholder="Số điện thoại" name="Phone" value="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sub-reg">
+                                <div class="col-md-12">
+                                    <a class="back-logout col-md-4 col-sm-3 col-xs btn btn-warning" href="href" type="submit">Quay lại</a>
+                                    <button class="col-md-4 col-sm-3 col-xs btn btn-success" id="reg_btn" type="submit"> Đăng ký</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @{ Html.RenderAction("Cart", "Home");}
+        @RenderBody()
+        <footer class="page-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md">
+                        <h5 class="white-text">Footer Content</h5>
+                        <p class="grey-text">You can use rows and columns here to organize your footer content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container"><span class="grey-text">&copy; 2014 Copyright Text</span></div>
+            </div>
+        </footer>
+        <script type="text/javascript" src="~/Scripts/js/jquery-3.2.1.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="~/Scripts/js/jquery-ui.js" charset="utf-8" async="" defer=""></script>
+        <script type="text/javascript" src="~/Scripts/js/bootstrap3.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="~/Scripts/js/nav-main.js" charset="utf-8"></script>
+        <script type="text/javascript" src="~/Scripts/js/tether.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="~/Scripts/js/bxslider.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/js/parallax.js"></script>
+        <script type="text/javascript" src="~/Scripts/js/select.js"></script>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5913f75434cfc03d"></script>
+        <script src="~/Scripts/js/cartController.js"></script>
+        @RenderSection("scripts", false)
+    </body>
 </html>

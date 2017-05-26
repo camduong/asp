@@ -28,7 +28,7 @@
 								</div>
 								<div class="col-xs-4 col-lg-5 p-b">
 										<h3 class="gia">@String.Format("{0:0,0}",@Model.Price)<sup>VND</sup></h3>
-										<p><a href="#" role="button" class="btn btn-default">Đặt ngay</a></p>
+										<p><a href="~/Home/AddItem?tourid=@Model.Id&quatity=1" role="button" class="btn btn-default">Đặt ngay</a></p>
 								</div>
 								<div class="clearfix"></div>
 								<div class="detail-tour">
@@ -38,7 +38,7 @@
 										</ul>
 										<div class="tab-content">
 												<div id="chuongtrinh" role="tabpanel" class="tab-pane fade in active">
-														<div>@Html.DisplayFor(model => model.Schedule)</div>
+														<div>@Html.Raw(Model.Schedule))</div>
 												</div>
 												<div id="binhluan" role="tabpanel" class="tab-pane fade">
 													<div class="fb-comments" data-href="http://localhost:50885/Home/DetailTour" data-numposts="5"></div>

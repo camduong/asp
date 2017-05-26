@@ -31,7 +31,7 @@ namespace Vacation.Models
 		[DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
 		public System.DateTime Return_Date { get; set; }
 		public int Day { get; set; }
-		[DataType(DataType.Currency), DisplayFormat(DataFormatString = "{0:0.0}")]
+		[DataType(DataType.Currency), DisplayFormat(DataFormatString = "{0:0,0}")]
 		public decimal Price { get; set; }
 		public string Schedule { get; set; }
 
