@@ -23,13 +23,13 @@
                     <div class="book-form">
                         <div class="form-group text-center">
                             <form>
-                                <select class="selectpicker input-group col-xs-4" data-live-search='true' , name='noidi' , title='Nơi đi'>
+                                <select class="selectpicker input-group col-xs-4" data-live-search='true' name='noidi' title='Nơi đi'>
                                     @foreach (var item in Model)
                                     {
                                         <option data-tokens="@item.Id" , value="~/home/findtour?name=@item.Slug">@item.Name</option>
                                     }
                                 </select>
-                                <select class="selectpicker input-group col-xs-4" data-live-search='true' , name='noiden' , title='Nơi đến'>
+                                <select class="selectpicker input-group col-xs-4" data-live-search='true' name='noiden' title='Nơi đến'>
                                     @foreach (var item in Model)
                                     {
                                     <option data-tokens="@item.Id" , value="~/home/findtour?name=@item.Slug">@item.Name</option>

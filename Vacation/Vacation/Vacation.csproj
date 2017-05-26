@@ -59,9 +59,6 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="PugViewEngine, Version=0.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PugViewEngine.0.0.3.0\lib\net451\PugViewEngine.dll</HintPath>
-    </Reference>
     <Reference Include="RazorEngine, Version=3.9.3.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
       <HintPath>..\packages\RazorEngine.3.9.3\lib\net45\RazorEngine.dll</HintPath>
     </Reference>
@@ -508,13 +505,16 @@
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\bxslider.min.css" />
+    <Content Include="Content\css\custom.min.css" />
     <Content Include="Content\css\datepicker.min.css" />
     <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\jquery.dataTables.css" />
     <Content Include="Content\css\nav-reset.css" />
     <Content Include="Content\css\nav-style.css" />
     <Content Include="Content\css\select.css" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\css\thuvien.css" />
+    <Content Include="Content\css\thuvienadmin.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\fonts\vendor\bootstrap-sass\bootstrap\glyphicons-halflings-regular.svg" />
@@ -2909,9 +2909,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="node_modules\yargs\lib\validation.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="pugViewEngine.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
@@ -6153,10 +6150,6 @@
     <Content Include="Views\Tours\Details.cshtml" />
     <Content Include="Views\Tours\Edit.cshtml" />
     <Content Include="Views\Tours\Index.cshtml" />
-    <Content Include="Views\Shared\app-wels-footer.pug" />
-    <Content Include="Views\Shared\app-wels-nav.pug" />
-    <Content Include="Views\Shared\app-wels-script.pug" />
-    <Content Include="Views\Shared\app-wels.pug" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Orders\Details.cshtml" />
